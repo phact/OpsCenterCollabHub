@@ -1,0 +1,10 @@
+[package]
+name = "opsc_colab_hub"
+version = "0.1.0"
+[dependencies]
+iron = "*"
+router = "0.0.10"
+staticfile = "*"
+[dependencies.mount]
+
+git = "https://github.com/iron/mount.git"
