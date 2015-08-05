@@ -12,7 +12,7 @@ git clone https://github.com/phact/opsc-colab-hub.git
 
 3) build and run
 
-cargo build; target/debug/OpsCenterCollabHub
+cargo build; target/debug/opsc_colab_hub
 
 4) Hit your web browser localhost port 3000
 
