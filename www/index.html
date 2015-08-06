@@ -21,16 +21,28 @@
 
 			<div data-role="content" class="ui-content-c jqm-content" role="main">	
 
-					<h3>Enter JSON output from http://&lt;host&gt;:8888/&lt;Cluster_Name&gt;/nodes: </h3>
-					<input id="node_topology" placeholder="Node Topology..."></input>
+				<fieldset id="top-radio" data-role="controlgroup" data-type="horizontal">
+					        <h3>Select graph ip option:</h3>
+					        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="All" checked="checked">
+									<label for="radio-choice-h-2a">All</label>
+					        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="Cluster Wide">
+					        <label for="radio-choice-h-2b">Cluster Wide</label>
+					        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2c" value="Each Node">
+					        <label for="radio-choice-h-2c">Each Node</label>
+					    </fieldset>
 
-					<br/>
+				<br/>
 
-					<div id="template-checkbox"></div>
+				<h3>Enter JSON output from http://&lt;host&gt;:8888/&lt;Cluster_Name&gt;/nodes (required for Each Node ip option): </h3>
+				<input id="node_topology" placeholder="Node Topology..."></input>
 
-					<br/>
+				<br/>
 
-					<button onclick="getTemplates()"   class="ui-btn ui-icon-action ui-btn-icon-left ui-shadow ui-corner-all">Download Templates</button>
+				<div id="template-checkbox"></div>
+
+				<br/>
+
+				<button onclick="getTemplates()"   class="ui-btn ui-icon-action ui-btn-icon-left ui-shadow ui-corner-all">Download Templates</button>
 
 
 			</div><!-- /content -->

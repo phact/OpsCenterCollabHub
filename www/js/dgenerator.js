@@ -10,12 +10,34 @@ $(document).ready(function() {
 var templates
 
 function replaceIPs(data){
-//TODO	
+  var nodes = $("#node_topology")[0].value
+		data_obj = JSON.parse(data)
+
+		$.each(data_obj.preset_data, function(i,pd){
+			if ($("#top-radio :checked")[0].value== "Each Node" ){ 
+				if (nodes){
+					var ip_list = $.map(JSON.parse(nodes), function(d,i){ return d.node_ip})
+					var line = data_obj.preset_data[i]
+					data_obj.preset_data[i].data[0].ip = ip_list[i]
+				} else{
+				}
+			}else if ($("#top-radio :checked")[0].value== "Cluster Wide"){
+				data_obj.preset_data[i].data[0].ip = "__cluster__" 
+			}else if ($("#top-radio :checked")[0].value== "All"){
+				data_obj.preset_data[i].data[0].ip = "__all__"
+			}
+		})
+	data = JSON.stringify(data_obj)
 	return data;
 }
 
 function replaceDCs(data){
-//TODO
+	//TODO
+	var nodes = $("#node_topology")[0].value
+	  if (nodes){
+	$.map(JSON.parse($("#node_topology")[0].value), function(d,i){ return d.dc})
+	}
+
 	return data;
 }
 
