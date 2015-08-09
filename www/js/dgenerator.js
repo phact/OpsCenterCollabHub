@@ -5,7 +5,32 @@ $(document).ready(function() {
 		dataType: "text",
 	success: function(data) {processData(data);}
 	});
+	
+	$("#node_topology").textinput("disable")	
+	$("#node_label").css("color","lightgray")
+
+	$('#top-radio').on('change', function(){      
+		if ( $("#top-radio :checked")[0].value== "Each Node"){
+			$("#node_topology").textinput("enable")
+			$("#node_label").css("color","black")
+		}else {
+			$("#node_topology").textinput("disable")
+			$("#node_label").css("color","lightgray")
+		 }
+	});    
+
+
 });
+
+
+function flipTextInput(){
+	if ($("#node_topology").is(":disabled")) { 
+		$("#node_topology").textinput("enable") 
+	} else { 
+		$("#node_topology").textinput("disable") 
+	}
+}
+
 
 var templates
 
