@@ -5,6 +5,7 @@ dependencies = [
  "iron 0.1.20 (registry+https://github.com/rust-lang/crates.io-index)",
  "mount 0.0.7 (git+https://github.com/iron/mount.git)",
  "router 0.0.10 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustc-serialize 0.3.15 (registry+https://github.com/rust-lang/crates.io-index)",
  "staticfile 0.0.3 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 

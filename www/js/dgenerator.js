@@ -32,7 +32,6 @@ function flipTextInput(){
 }
 
 
-var templates
 
 function replaceIPs(data){
   var nodes = $("#node_topology")[0].value
@@ -67,11 +66,16 @@ function replaceDCs(data){
 }
 
 function processData(data) {
-	templates = data.split(",");	
+	templates = data.split(",");
 	$('#template-checkbox').append('<fieldset id="template-checkbox" data-role="controlgroup" data-iconpos="right"><h3>Select Desired Dashboard Templates:</h3>');
+
 	$.each(templates, function(i,template){
 		if (template != "") {
-			$('#template-checkbox').append('<input value="'+template+'" type="checkbox" name="checkbox-templates'+i+'" id="checkbox-templates'+i+'"><label for="checkbox-templates'+i+'">'+template+'</label>');
+			
+			value = template.split(":")[0]
+			text = template.split("/")[1].replace("\"","").replace("\"","")
+
+			$('#template-checkbox').append('<input value="'+value+'" type="checkbox" name="checkbox-templates'+i+'" id="checkbox-templates'+i+'"><label for="checkbox-templates'+i+'">'+text+'</label>');
 		}
 	})
 
