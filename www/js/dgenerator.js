@@ -73,7 +73,7 @@ function processData(data) {
 		if (template != "") {
 			
 			value = template.split(":")[0]
-			text = template.split("/")[1].replace("\"","").replace("\"","")
+			text = template.split(":")[1].replace("\"","").replace("\"","")
 
 			$('#template-checkbox').append('<input value="'+value+'" type="checkbox" name="checkbox-templates'+i+'" id="checkbox-templates'+i+'"><label for="checkbox-templates'+i+'">'+text+'</label>');
 		}
@@ -98,7 +98,7 @@ function getTemplates(){
 
 		$.ajax({
 			type: "GET",
-			url: url,
+			url: "../"+url,
 			dataType: "text",
 			success: function(data) {
 				data = replaceIPs(data);
