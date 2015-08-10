@@ -1,1 +1,1 @@
-data/tpcompleted.json,data/cf.json: "this template is for column families",data/os.json,data/tpactive.json: "this template captures info on active threadpools",data/second.json,data/third.json,data/first.json,data/tpdropped.json,data/tppending.json,data/tbl.json,data/tpblocked.json: "this template captures data on blocked threadpools",
+data/tpactive.json: "this template captures info on active threadpools",data/tpblocked.json: "this template captures data on blocked threadpools",data/os.json,data/tpcompleted.json,data/tpdropped.json,data/tppending.json,data/gc.json,
