@@ -18,13 +18,17 @@ $(document).ready(function() {
 
 		$('#opsc_url')[0].href= "http://"+$("#opsc_ip").val() +":8888/cluster-configs"
 		$('#opsc_url').text("here")
+			$("#cluster_config").textinput("enable")	
+			$("#config_label").css("color","black")
 
 	})
 
-  $('#cluster_config').on('change', function(){
+	$('#cluster_config').on('change', function(){
 
 		$('#opsc_url_2')[0].href= "http://"+$("#opsc_ip").val() +":8888/"+Object.keys(JSON.parse($("#cluster_config").val()))[0]+"/nodes"
 		$('#opsc_url_2').text("here")
+			$("#node_topology").textinput("enable")
+			$("#node_label").css("color","black")
 
 	})
 
@@ -32,11 +36,13 @@ $(document).ready(function() {
 	$('#top-radio').on('change', function(){      
 		if ( $("#top-radio :checked")[0].value== "Each Node"){
 			$("#opsc_ip").textinput("enable")	
+			$("#opsc_ip_label").css("color","black")
+			if ($("#opsc_ip").val()!=""){
 			$("#node_topology").textinput("enable")
 			$("#node_label").css("color","black")
-			$("#opsc_ip_label").css("color","black")
-			$("#config_label").css("color","black")
 			$("#cluster_config").textinput("enable")	
+			$("#config_label").css("color","black")
+			}
 		}else {
 			$("#opsc_ip").textinput("disable")	
 			$("#node_topology").textinput("disable")
