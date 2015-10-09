@@ -19,7 +19,7 @@ fn main() {
 	mount.mount("/", Static::new(Path::new("www/")));
 	mount.mount("/data/", Static::new(Path::new("data/")));
 
-	println!("Doc server running on http://localhost:3000/");
+	println!("Doc server running ");
 
-	Iron::new(mount).http("0.0.0.0:3000").unwrap();
+	Iron::new(mount).http("0.0.0.0:8765").unwrap();
 }

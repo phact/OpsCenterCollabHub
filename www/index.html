@@ -1,4 +1,4 @@
-<html class="ui-mobile">
+/html class="ui-mobile">
 	<script type="text/javascript"></script><head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -6,6 +6,16 @@
 		<link rel="stylesheet" href="css/jquery.mobile-1.3.0.css">
 		<script src="js/jquery.js"></script>
 		<script src="js/jszip.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57322103-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 	</head> 
 
 	<body class="ui-mobile-viewport ui-overlay-a"> 
@@ -20,7 +30,7 @@
 			<div data-role="content" class="ui-content-c jqm-content" role="main">	
 
 				<fieldset id="top-radio" data-role="controlgroup" data-type="horizontal">
-					        <h3>Select graph ip option:</h3>
+					        <h3>Select graph option:</h3>
 					        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="All" checked="checked">
 									<label for="radio-choice-h-2a">All</label>
 					        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="Cluster Wide">
@@ -31,7 +41,11 @@
 
 				<br/>
 
-				<h3 id="node_label">Enter JSON output from http://&lt;host&gt;:8888/&lt;Cluster_Name&gt;/nodes (required for Each Node ip option): </h3>
+				<h3 id="opsc_ip_label">OpsCenter IP / Hostname (required for Each Node ip option): </h3>
+				<input id="opsc_ip" placeholder="OpsCenter IP or Hostname..."></input>
+				<h3 id="config_label">Click <a target="_blank" id="opsc_url" href=""></a> and copy/paste cluster config below: </h3>
+				<input id="cluster_config" placeholder="Cluster Config..."></input>
+				<h3 id="node_label">Click <a target="_blank" id="opsc_url_2" href=""></a> and copy/paste node topology below: </h3>
 				<input id="node_topology" placeholder="Node Topology..."></input>
 
 				<br/>

@@ -6,16 +6,50 @@ $(document).ready(function() {
 	success: function(data) {processData(data);}
 	});
 	
+	$("#opsc_ip").textinput("disable")	
 	$("#node_topology").textinput("disable")	
+	$("#cluster_config").textinput("disable")	
 	$("#node_label").css("color","lightgray")
+	$("#opsc_ip_label").css("color","lightgray")
+	$("#config_label").css("color","lightgray")
+
+
+	$('#opsc_ip').on('change', function(){
+
+		$('#opsc_url')[0].href= "http://"+$("#opsc_ip").val() +":8888/cluster-configs"
+		$('#opsc_url').text("here")
+			$("#cluster_config").textinput("enable")	
+			$("#config_label").css("color","black")
+
+	})
+
+	$('#cluster_config').on('change', function(){
+
+		$('#opsc_url_2')[0].href= "http://"+$("#opsc_ip").val() +":8888/"+Object.keys(JSON.parse($("#cluster_config").val()))[0]+"/nodes"
+		$('#opsc_url_2').text("here")
+			$("#node_topology").textinput("enable")
+			$("#node_label").css("color","black")
+
+	})
+
 
 	$('#top-radio').on('change', function(){      
 		if ( $("#top-radio :checked")[0].value== "Each Node"){
+			$("#opsc_ip").textinput("enable")	
+			$("#opsc_ip_label").css("color","black")
+			if ($("#opsc_ip").val()!=""){
 			$("#node_topology").textinput("enable")
 			$("#node_label").css("color","black")
+			$("#cluster_config").textinput("enable")	
+			$("#config_label").css("color","black")
+			}
 		}else {
+			$("#opsc_ip").textinput("disable")	
 			$("#node_topology").textinput("disable")
 			$("#node_label").css("color","lightgray")
+			$("#opsc_ip_label").css("color","lightgray")
+			$("#config_label").css("color","lightgray")
+			$("#cluster_config").textinput("disable")	
 		 }
 	});    
 
@@ -73,7 +107,7 @@ function processData(data) {
 		if (template != "") {
 			
 			value = template.split(":")[0]
-			text = template.split("/")[1].replace("\"","").replace("\"","")
+			text = template.split(":")[1].replace("\"","").replace("\"","")
 
 			$('#template-checkbox').append('<input value="'+value+'" type="checkbox" name="checkbox-templates'+i+'" id="checkbox-templates'+i+'"><label for="checkbox-templates'+i+'">'+text+'</label>');
 		}
@@ -98,7 +132,7 @@ function getTemplates(){
 
 		$.ajax({
 			type: "GET",
-			url: url,
+			url: "../"+url,
 			dataType: "text",
 			success: function(data) {
 				data = replaceIPs(data);
